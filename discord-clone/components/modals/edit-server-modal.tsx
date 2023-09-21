@@ -73,7 +73,10 @@ export const EditServerModal = () => {
   }
 
   const handleClose = () => {
-    form.reset()
+    if (server) {
+      form.setValue("name", server.name)
+      form.setValue("imageUrl", server.imageUrl)
+    }
     onClose()
   }
 
