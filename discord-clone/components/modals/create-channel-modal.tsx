@@ -47,7 +47,7 @@ const formSchema = z.object({
 })
 
 export const CreateChannelModal = () => {
-  const { isOpen, onClose, type } = useModal()
+  const { isOpen, onClose, type, data, channelType } = useModal()
   const router = useRouter()
   const params = useParams()
 
@@ -57,7 +57,12 @@ export const CreateChannelModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      type: ChannelType.TEXT,
+      type:
+        channelType === "VIDEO"
+          ? ChannelType.VIDEO
+          : channelType === "AUDIO"
+          ? ChannelType.AUDIO
+          : ChannelType.TEXT,
     },
   })
 
@@ -126,7 +131,7 @@ export const CreateChannelModal = () => {
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
-                      defaultValue={field.value}
+                      defaultValue={channelType ? channelType : field.value}
                     >
                       <FormControl>
                         <SelectTrigger className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
