@@ -38,10 +38,10 @@ export const ServerSearch = ({ data }: ServerSearchProps) => {
         setOpen((open) => !open)
       }
     }
-    if (down) {
-      document.addEventListener("keydown", down)
-      return () => document.removeEventListener("keydown", down)
-    }
+    // @ts-ignore
+    document.addEventListener("keydown", down)
+    // @ts-ignore
+    return () => document.removeEventListener("keydown", down)
   }, [])
 
   const onClick = ({
