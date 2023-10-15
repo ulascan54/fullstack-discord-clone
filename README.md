@@ -2,6 +2,8 @@
 
 This is a repository for Fullstack Discord Clone: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL | Full Course 2023
 
+![](./screenshot.gif)
+
 Features:
 
 - [x] Real-time messaging using Socket.io
